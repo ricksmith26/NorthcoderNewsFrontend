@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import ArticlesList from './ArticlesList';
 import * as api from '../../api';
 
@@ -25,7 +24,6 @@ class Articles extends Component {
   }
 
   render() {
-    console.log(this.state);
     if (!this.state.articles.length || !this.state.topics.length)
       return <h1>Loading...</h1>;
     return (
@@ -45,8 +43,6 @@ class Articles extends Component {
   }
   handleTopicChange = event => {
     this.setState({ topic_name: event.target.value });
-    // const topicArticles = await api.fetchArticlesByTopic(event.target.value)
-    // this.setState({articles: topicArticles})
   };
 }
 
