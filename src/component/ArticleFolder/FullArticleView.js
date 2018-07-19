@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../../api';
+import { Link } from 'react-router-dom';
 
 class FullArticleView extends Component {
   state = {
@@ -21,7 +22,10 @@ class FullArticleView extends Component {
         <p>{this.state.article.body}</p>
         <p>{this.state.article.username}</p>
         <p>Votes: {this.state.article.votes}</p>
-        <p>Comments: {this.state.article.comments}</p>
+        <Link to={`/articles/${this.state.article._id}/comments`}>
+          {' '}
+          <p>Comments: {this.state.article.comments}</p>
+        </Link>;
       </div>
     );
   }

@@ -15,6 +15,7 @@ class Articles extends Component {
 
     this.setState({ articles, topics });
   };
+
   async componentDidUpdate(_, prevState) {
     if (prevState.topic_name !== this.state.topic_name) {
       const articles = await api.fetchArticlesByTopic(this.state.topic_name);

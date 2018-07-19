@@ -5,6 +5,7 @@ import Articles from '../src/component/ArticleFolder/Articles';
 import FullArticleView from '../src/component/ArticleFolder/FullArticleView';
 import Users from '../src/component/Users/Users';
 import { Route, NavLink } from 'react-router-dom';
+import CommentsPage from './component/comments/comments';
 
 class App extends Component {
   render() {
@@ -19,6 +20,11 @@ class App extends Component {
         <Route exact path="/" component={Articles} />
         <Route exact path="/users/:username" component={Users} />
         <Route exact path="/articles/:article_id" component={FullArticleView} />
+        <Route
+          exact
+          path="/articles/:article_id/comments"
+          component={CommentsPage}
+        />
       </div>
     );
   }
