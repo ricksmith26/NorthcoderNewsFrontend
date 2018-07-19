@@ -25,7 +25,7 @@ class FullArticleView extends Component {
         <Link to={`/articles/${this.state.article._id}/comments`}>
           {' '}
           <p>Comments: {this.state.article.comments}</p>
-        </Link>;
+        </Link>
       </div>
     );
   }
