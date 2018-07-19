@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function ArticlesList({ articles }) {
+function ArticlesList({ articles, loggedIn }) {
   return (
     <div>
       {articles.map(function(article) {

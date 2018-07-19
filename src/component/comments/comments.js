@@ -58,7 +58,7 @@ class CommentsPage extends Component {
                   comment._id
                 )} */}
                 <DeleteCommentFunc
-                  currentUser="5b4f4b8c224754466af76ab7"
+                  currentUser={this.props.loggedIn}
                   authorUser={comment.created_by}
                   id={comment._id}
                   deleteCom={this.deleteCom}
