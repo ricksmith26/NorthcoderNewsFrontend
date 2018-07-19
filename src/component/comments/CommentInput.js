@@ -44,6 +44,7 @@ class CommentInput extends React.Component {
 
     const newComment = await api.postComment(this.props.article_id, comment);
     // newComment['username'] = comment.created_by;
+
     this.props.addComment(newComment);
     this.setState({ userInput: '' });
   };

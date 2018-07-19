@@ -17,7 +17,10 @@ function ArticlesList({ articles }) {
               {' '}
               <p>Author: {article.username}</p>
             </Link>
-            <p>Comments: {article.comments}</p>
+            <Link to={`/articles/${article._id}/comments`}>
+              {' '}
+              <p>Comments: {article.comments}</p>
+            </Link>
           </div>
         );
       })}

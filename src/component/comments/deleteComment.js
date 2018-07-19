@@ -1,9 +1,11 @@
 import React from 'react';
-import { deleteComment } from '../../api';
 
-function deleteCommentFunc(currentUser, authorUser, id) {
-  if (currentUser === authorUser)
-    return <button onClick={() => deleteComment(id)}>Delete</button>;
+function DeleteCommentFunc({ currentUser, authorUser, id, deleteCom }) {
+  if (currentUser === authorUser) {
+    return <button onClick={() => deleteCom(id)}>Delete</button>;
+  } else {
+    return null;
+  }
 }
 
-export default deleteCommentFunc;
+export default DeleteCommentFunc;
