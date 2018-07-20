@@ -3,6 +3,7 @@ import * as api from '../../api';
 import moment from 'moment';
 import CommentInput from './CommentInput';
 import DeleteCommentFunc from './deleteComment';
+import NumberContext from '../../context'
 
 class CommentsPage extends Component {
   state = {
@@ -20,16 +21,6 @@ class CommentsPage extends Component {
     this.setState({ comments, article });
   }
 
-  // async componentDidUpdate(_, prevState) {
-  //   if (prevState.comments !== this.state.comments) {
-  //     const comments = await api.getCommentsForArticle(
-  //       this.props.match.params.article_id
-  //     );
-
-  //     this.setState({ comments });
-  //   }
-  // }
-
   render() {
     return (
       <div key={this.state.article_id}>
@@ -45,27 +36,17 @@ class CommentsPage extends Component {
             );
           })
           .map(comment => {
-            return (
-              <div key={comment._id}>
+            return <div key={comment._id}>
                 <p>
                   <b>{comment.username}:</b> {comment.body}
                 </p>
                 Posted {moment(comment.created_at).fromNow('LLL')}
                 <p>Votes: {comment.votes}</p>
-                {/* {DeleteCommentFunc(
-                  '5b4f4b8c224754466af76ab7',
-                  comment.created_by,
-                  comment._id
-                )} */}
-                <DeleteCommentFunc
-                  currentUser={this.props.loggedIn}
-                  authorUser={comment.created_by}
-                  id={comment._id}
-                  deleteCom={this.deleteCom}
-                />
+                <NumberContext.Consumer>
+                 {val => <DeleteCommentFunc currentUser={val} authorUser={comment.created_by} id={comment._id} deleteCom={this.deleteCom} />}
+                </NumberContext.Consumer>
                 <br /> <br />
-              </div>
-            );
+              </div>;
           })}
 
         <CommentInput

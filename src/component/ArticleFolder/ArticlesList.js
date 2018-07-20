@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 
 function ArticlesList({ articles, loggedIn }) {
   return (
-    <div>
+    <div className= 'article-gallery'>
       {articles.map(function(article) {
         return (
-          <div key={article._id} className="articleList">
+          <figure className="gallery-Item" >
+          <div key={article._id} className="articleThumbnail">
             <Link to={`/articles/${article._id}`}>
               {' '}
               <h2>{article.title}</h2>
@@ -22,6 +23,7 @@ function ArticlesList({ articles, loggedIn }) {
               <p>Comments: {article.comments}</p>
             </Link>
           </div>
+          </figure>
         );
       })}
     </div>

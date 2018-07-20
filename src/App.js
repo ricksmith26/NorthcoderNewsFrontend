@@ -10,7 +10,8 @@ import UserLogin from './component/Users/UserLogin';
 
 class App extends Component {
   state = {
-    loggedIn: 'jessjelly'
+    loggedIn: 'jessjelly',
+    loggedUserId: '5b4f4b8c224754466af76ab7'
   };
   render() {
     return (
@@ -19,7 +20,6 @@ class App extends Component {
           <UserLogin loggedIn={this.state.loggedIn} />
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Northcoder News</h1>
-          <br />
           <Nav />
         </header>
         <Route exact path="/" component={Articles} />
