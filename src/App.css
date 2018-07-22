@@ -4,6 +4,11 @@
   text-align: center;
   font-family: 'Varela Round', sans-serif;
 }
+.background {
+  background-image: url('./northcoderlogo.jpg');
+  background-repeat: repeat-y repeat-x;
+  background-size: 5%;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -54,16 +59,13 @@
   border-radius: 4px;
   padding: 2%;
   background-color: whitesmoke;
-  font-family: 'Raleway', sans-serif;
   box-shadow: 0 0 80px black;
-
-  
 }
 
-Nav {
+nav {
   color: white;
   text-decoration: underline;
-  text-decoration-color: white
+  text-decoration-color: white;
 }
 
 @keyframes App-logo-spin {
@@ -78,9 +80,64 @@ Nav {
 .fullArticle {
   width: 60%;
   margin: auto;
+  height: 100vh;
 }
 
-/* @media screen and (min-width: 768px) {
-  .App-title  { display: block; }
-  #leftside > button { display: none; }
-} */
+.title {
+  text-decoration: underline;
+  text-decoration-color: black;
+  color: black;
+}
+
+.commentBox {
+  background-color: white;
+  width: 60%;
+  margin: auto;
+  padding: 0.5%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  border: 5px outset #941010;
+  border-width: 5px;
+  border-style: outset;
+  border-color: #941010;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 5fr;
+  grid-template-areas:
+    'header header header'
+    'main main main'
+    'footer footer footer';
+  height: 110vh;
+}
+
+.commentHeader {
+  grid-area: header;
+  background-color: white;
+  position: relative;
+  border-bottom-color: black;
+}
+
+.commentMain {
+  grid-area: main;
+  padding-right: 15px;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 60vh;
+}
+
+.commentFooter {
+  grid-area: footer;
+  font-size: 18px;
+  /* background-image: url('./northcoderlogo.jpg');
+  background-repeat: repeat-y repeat-x; */
+  background-size: 5%;
+  background-color: black;
+}
+
+input[type='text'] {
+  box-sizing: border-box;
+  width: 80%;
+}

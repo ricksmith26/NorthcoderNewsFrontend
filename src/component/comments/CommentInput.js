@@ -15,6 +15,7 @@ class CommentInput extends React.Component {
           onKeyUp={this.handleKeyPress}
           onChange={this.handleInputChange}
           value={this.state.userInput}
+          placeholder="Enter your comment..."
         />
       </div>
     );

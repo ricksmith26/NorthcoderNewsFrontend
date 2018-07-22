@@ -3,7 +3,6 @@ import * as api from '../../api';
 import { Link } from 'react-router-dom';
 import ArticleVote from './ArticleVote';
 
-
 class FullArticleView extends Component {
   state = {
     article: [],
@@ -21,25 +20,27 @@ class FullArticleView extends Component {
 
   render() {
     return (
-      <div className= "fullArticle">
-        <h1>{this.state.article.title}</h1>
-        <p>{this.state.article.body}</p>
-        <Link to={`/users/${this.state.article.username}`}>
-          {' '}
-          <p>{this.state.article.username}</p>
-        </Link>
-        <p>Votes: {this.state.article.votes}</p>
-        <Link to={`/articles/${this.state.article._id}/comments`}>
-          {' '}
-          <p>Comments: {this.state.article.comments}</p>
-        </Link>
-        <ArticleVote
-          voteUp={this.state.voteUp}
-          voteDown={this.state.voteDown}
-          handleVoteUp={this.handleVoteUp}
-          handleVoteDown={this.handleVoteDown}
-          votes={this.state.article.votes}
-        />
+      <div className="fullArticle">
+        <div className="subFullArticle">
+          <h1>{this.state.article.title}</h1>
+          <p>{this.state.article.body}</p>
+          <Link to={`/users/${this.state.article.username}`}>
+            {' '}
+            <p>{this.state.article.username}</p>
+          </Link>
+          <p>Votes: {this.state.article.votes}</p>
+          <Link to={`/articles/${this.state.article._id}/comments`}>
+            {' '}
+            <p>Comments: {this.state.article.comments}</p>
+          </Link>
+          <ArticleVote
+            voteUp={this.state.voteUp}
+            voteDown={this.state.voteDown}
+            handleVoteUp={this.handleVoteUp}
+            handleVoteDown={this.handleVoteDown}
+            votes={this.state.article.votes}
+          />
+        </div>
       </div>
     );
   }

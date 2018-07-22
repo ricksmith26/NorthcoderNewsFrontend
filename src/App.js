@@ -22,14 +22,20 @@ class App extends Component {
           <h1 className="App-title">Northcoder News</h1>
           <Nav />
         </header>
-        <Route exact path="/" component={Articles} />
-        <Route exact path="/users/:username" component={Users} />
-        <Route exact path="/articles/:article_id" component={FullArticleView} />
-        <Route
-          exact
-          path="/articles/:article_id/comments"
-          component={CommentsPage}
-        />
+        <div className="background">
+          <Route exact path="/" component={Articles} />
+          <Route exact path="/users/:username" component={Users} />
+          <Route
+            exact
+            path="/articles/:article_id"
+            component={FullArticleView}
+          />
+          <Route
+            exact
+            path="/articles/:article_id/comments"
+            component={CommentsPage}
+          />
+        </div>
       </div>
     );
   }

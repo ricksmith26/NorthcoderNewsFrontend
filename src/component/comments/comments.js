@@ -3,7 +3,7 @@ import * as api from '../../api';
 import moment from 'moment';
 import CommentInput from './CommentInput';
 import DeleteCommentFunc from './deleteComment';
-import NumberContext from '../../context'
+import NumberContext from '../../context';
 
 class CommentsPage extends Component {
   state = {
@@ -23,39 +23,52 @@ class CommentsPage extends Component {
 
   render() {
     return (
-      <div key={this.state.article_id}>
-        <h1>{this.state.article.title}</h1>
-        <h3>{this.state.article.body}</h3>
-        <p>Author: {this.state.article.username}</p>
-        <p>Votes: {this.state.article.votes}</p>
-        {[...this.state.comments]
-          .sort(function(a, b) {
-            return (
-              moment(a.created_at).format('X') -
-              moment(b.created_at).format('X')
-            );
-          })
-          .map(comment => {
-            return <div key={comment._id}>
-                <p>
-                  <b>{comment.username}:</b> {comment.body}
-                </p>
-                Posted {moment(comment.created_at).fromNow('LLL')}
-                <p>Votes: {comment.votes}</p>
-                <NumberContext.Consumer>
-                 {val => <DeleteCommentFunc currentUser={val} authorUser={comment.created_by} id={comment._id} deleteCom={this.deleteCom} />}
-                </NumberContext.Consumer>
-                <br /> <br />
-              </div>;
-          })}
-
-        <CommentInput
-          id="messageInput"
-          article_id={this.state.article._id}
-          addComment={this.addComment}
-        />
-        <br />
-        <br />
+      <div key={this.state.article_id} className="container">
+        <header className="commentHeader">
+          <h1>{this.state.article.title}</h1>
+          <h3>{this.state.article.body}</h3>
+          <p>Author: {this.state.article.username}</p>
+          <p>Votes: {this.state.article.votes}</p>
+        </header>
+        <main className="commentMain">
+          {[...this.state.comments]
+            .sort(function(a, b) {
+              return (
+                moment(a.created_at).format('X') -
+                moment(b.created_at).format('X')
+              );
+            })
+            .map(comment => {
+              return (
+                <div key={comment._id} className="commentBox">
+                  <p>
+                    <b>{comment.username}:</b> {comment.body}
+                  </p>
+                  Posted {moment(comment.created_at).fromNow('LLL')}
+                  <p>Votes: {comment.votes}</p>
+                  <NumberContext.Consumer>
+                    {val => (
+                      <DeleteCommentFunc
+                        currentUser={val}
+                        authorUser={comment.created_by}
+                        id={comment._id}
+                        deleteCom={this.deleteCom}
+                      />
+                    )}
+                  </NumberContext.Consumer>
+                </div>
+              );
+            })}
+        </main>
+        <footer className="commentFooter">
+          <CommentInput
+            id="messageInput"
+            article_id={this.state.article._id}
+            addComment={this.addComment}
+          />
+          <br />
+          <br />
+        </footer>
       </div>
     );
   }
