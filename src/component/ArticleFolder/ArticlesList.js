@@ -6,8 +6,8 @@ function ArticlesList({ articles, loggedIn }) {
     <div className="article-gallery">
       {articles.map(function(article) {
         return (
-          <figure className="gallery-Item">
-            <div key={article._id} className="articleThumbnail">
+          <figure key={article._id} className="gallery-Item">
+            <div className="articleThumbnail">
               <Link to={`/articles/${article._id}`}>
                 {' '}
                 <h2 className="title">{article.title}</h2>
