@@ -4,11 +4,14 @@ import moment from 'moment';
 import CommentInput from './CommentInput';
 import DeleteCommentFunc from './deleteComment';
 import NumberContext from '../../context';
+import CommentVote from './CommentVote';
 
 class CommentsPage extends Component {
   state = {
     comments: [],
-    article: []
+    article: [],
+    voteUp: false,
+    voteDown: false
   };
 
   async componentDidMount() {
@@ -46,6 +49,7 @@ class CommentsPage extends Component {
                   </p>
                   Posted {moment(comment.created_at).fromNow('LLL')}
                   <p>Votes: {comment.votes}</p>
+                  <p>{comment._id}</p>
                   <NumberContext.Consumer>
                     {val => (
                       <DeleteCommentFunc
@@ -56,6 +60,14 @@ class CommentsPage extends Component {
                       />
                     )}
                   </NumberContext.Consumer>
+                  <CommentVote
+                    voteUp={this.state.voteUp}
+                    voteDown={this.state.voteDown}
+                    handleVoteUp={this.handleVoteUp}
+                    handleVoteDown={this.handleVoteDown}
+                    votes={comment.votes}
+                    id={comment._id}
+                  />
                 </div>
               );
             })}
@@ -83,6 +95,28 @@ class CommentsPage extends Component {
     );
     api.deleteComment(id);
     this.setState({ comments: newComArr });
+  };
+
+  handleVoteUp = async id => {
+    const comment = await api.voteComment(id, {
+      vote: 'up'
+    });
+
+    this.setState({
+      comments: [...this.state.comments, ...comment],
+      voteUp: true
+    });
+  };
+
+  handleVoteDown = async id => {
+    const comment = await api.voteComment(id, {
+      vote: 'down'
+    });
+
+    this.setState({
+      comments: [...this.state.comments, ...comment],
+      voteDown: true
+    });
   };
 }
 

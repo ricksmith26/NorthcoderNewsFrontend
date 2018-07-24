@@ -49,3 +49,8 @@ export const voteArticle = async (article_id, vote) => {
   const res = await axios.put(`${URL}/articles/${article_id}`, vote);
   return res.data;
 };
+
+export const voteComment = async (comment_id, vote) => {
+  const res = await axios.put(`${URL}/comments/${comment_id}`, vote);
+  return res;
+};
