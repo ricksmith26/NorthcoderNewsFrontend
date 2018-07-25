@@ -54,3 +54,13 @@ export const voteComment = async (comment_id, vote) => {
   const res = await axios.put(`${URL}/comments/${comment_id}`, vote);
   return res;
 };
+
+export const getUsers = async () => {
+  const res = await axios.get(`${URL}/users`);
+  return res.data;
+};
+
+export const addUser = async userInfo => {
+  const res = await axios.post(`${URL}/users`, userInfo);
+  return res;
+};

@@ -10,20 +10,27 @@ import UserLogin from './component/Users/UserLogin';
 
 class App extends Component {
   state = {
-    loggedIn: 'jessjelly',
-    loggedUserId: '5b4f4b8c224754466af76ab7'
+    loggedIn: '',
+    loggedUserId: ''
   };
   render() {
+    console.log('app render');
     return (
       <div className="App">
         <header className="App-header">
-          <UserLogin loggedIn={this.state.loggedIn} />
-          <Link to={`/`}>
-            {' '}
-            <img src={logo} className="App-logo" alt="logo" />
-          </Link>
-          <h1 className="App-title">Northcoder News</h1>
-          <Nav />
+          <figure>
+            <div>
+              <UserLogin loggedIn={this.state.loggedIn} />
+            </div>
+            <div>
+              <Link to={`/`}>
+                {' '}
+                <img src={logo} className="App-logo" alt="logo" />
+              </Link>
+              <h1 className="App-title">Northcoder News</h1>
+              <Nav />
+            </div>
+          </figure>
         </header>
         <div className="background">
           <Route exact path="/" component={Articles} />

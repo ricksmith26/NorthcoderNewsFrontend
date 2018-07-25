@@ -4,6 +4,7 @@ import moment from 'moment';
 import CommentInput from './CommentInput';
 import DeleteCommentFunc from './deleteComment';
 import NumberContext from '../../context';
+// import NumberContext from '../Users/UserLogin';
 import CommentVote from './CommentVote';
 
 class CommentsPage extends Component {
@@ -25,6 +26,7 @@ class CommentsPage extends Component {
   }
 
   render() {
+    console.log('comment render');
     return (
       <div key={this.state.article_id} className="container">
         <header className="commentHeader">
@@ -49,7 +51,6 @@ class CommentsPage extends Component {
                   </p>
                   Posted {moment(comment.created_at).fromNow('LLL')}
                   <p>Votes: {comment.votes}</p>
-                  <p>{comment._id}</p>
                   <NumberContext.Consumer>
                     {val => (
                       <DeleteCommentFunc

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class ArticleVote extends Component {
   render() {
+    console.log('article vote');
     return (
       <div className="voteDiv">
         {this.props.voteUp ? (
