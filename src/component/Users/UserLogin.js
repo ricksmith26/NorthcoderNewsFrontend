@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as api from '../../api';
 import FailedLogin from './failedLogin';
+import NumberContext from '../../context';
 
-export let userId = 'helloe there';
+export const LoggedUserContext = React.createContext();
 
 class UserLogin extends Component {
   state = {
     username: '',
     password: '',
-
+    id: '',
     loggedIn: false,
     failedLogin: false
   };
 
   render() {
-    console.log(this.state.failedLogin, '<<<<<<<');
+    <LoggedUserContext.Provider value={this.state.id} />;
+
     if (this.state.loggedIn) {
       return (
         <div className="loggedInProfile">
@@ -66,8 +68,10 @@ class UserLogin extends Component {
       }
       if (userlist[this.state.username].password === this.state.password) {
         this.setState({
-          loggedIn: true
+          loggedIn: true,
+          id: userlist[this.state.username]._id
         });
+        console.log(this.state.id, '<<<<<<<<<<<<<<<<<ID');
       }
     });
   };

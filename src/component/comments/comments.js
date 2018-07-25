@@ -4,7 +4,6 @@ import moment from 'moment';
 import CommentInput from './CommentInput';
 import DeleteCommentFunc from './deleteComment';
 import NumberContext from '../../context';
-// import NumberContext from '../Users/UserLogin';
 import CommentVote from './CommentVote';
 
 class CommentsPage extends Component {

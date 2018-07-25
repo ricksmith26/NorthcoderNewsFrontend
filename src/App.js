@@ -14,7 +14,6 @@ class App extends Component {
     loggedUserId: ''
   };
   render() {
-    console.log('app render');
     return (
       <div className="App">
         <header className="App-header">
