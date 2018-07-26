@@ -52,7 +52,7 @@ export const voteArticle = async (article_id, vote) => {
 
 export const voteComment = async (comment_id, vote) => {
   const res = await axios.put(`${URL}/comments/${comment_id}`, vote);
-  return res;
+  return res.data;
 };
 
 export const getUsers = async () => {

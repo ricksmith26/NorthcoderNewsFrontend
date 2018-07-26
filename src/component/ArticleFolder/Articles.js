@@ -25,7 +25,6 @@ class Articles extends Component {
   }
 
   render() {
-    console.log('articles render');
     if (!this.state.articles.length || !this.state.topics.length)
       return <h1>Loading...</h1>;
     return (

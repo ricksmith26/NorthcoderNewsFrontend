@@ -7,19 +7,33 @@ import Users from '../src/component/Users/Users';
 import { Route, NavLink, Link } from 'react-router-dom';
 import CommentsPage from './component/comments/comments';
 import UserLogin from './component/Users/UserLogin';
+import * as api from '../src/api';
 
 class App extends Component {
   state = {
-    loggedIn: '',
-    loggedUserId: ''
+    username: '',
+    password: '',
+    id: '',
+    loggedIn: false,
+    failedLogin: false
   };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <figure>
             <div>
-              <UserLogin loggedIn={this.state.loggedIn} />
+              <UserLogin
+                username={this.state.username}
+                password={this.state.password}
+                id={this.state.id}
+                loggedIn={this.state.loggedIn}
+                failedLogin={this.state.loggedIn}
+                handleUsernameChange={this.handleUsernameChange}
+                handlePasswordChange={this.handlePasswordChange}
+                handleLogin={this.handleLogin}
+              />
             </div>
             <div>
               <Link to={`/`}>
@@ -39,15 +53,47 @@ class App extends Component {
             path="/articles/:article_id"
             component={FullArticleView}
           />
+
           <Route
             exact
             path="/articles/:article_id/comments"
-            component={CommentsPage}
+            render={props => (
+              <CommentsPage
+                {...props}
+                id={this.state.id}
+                username={this.state.username}
+                loggedIn={this.state.loggedIn}
+              />
+            )}
           />
         </div>
       </div>
     );
   }
+  handleUsernameChange = event => {
+    this.setState({
+      username: event.target.value
+    });
+  };
+  handlePasswordChange = event => {
+    this.setState({
+      password: event.target.value
+    });
+  };
+  handleLogin = event => {
+    event.preventDefault();
+    api.getUsers().then(userlist => {
+      if (!userlist[this.state.username]) {
+        return this.setState({ failedLogin: true });
+      }
+      if (userlist[this.state.username].password === this.state.password) {
+        this.setState({
+          loggedIn: true,
+          id: userlist[this.state.username]._id
+        });
+      }
+    });
+  };
 }
 function Nav() {
   return (

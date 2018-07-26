@@ -132,8 +132,6 @@ nav {
 .commentFooter {
   grid-area: footer;
   font-size: 18px;
-  /* background-image: url('./northcoderlogo.jpg');
-  background-repeat: repeat-y repeat-x; */
   background-size: 5%;
   background-color: black;
 }
@@ -146,4 +144,16 @@ nav {
 .Login {
   width: 200px;
   float: right;
+}
+
+.commentInputAlt {
+  color: white;
+}
+
+.thumbsUp {
+  width: 50px;
+}
+
+.thumbsUpCom {
+  width: 30px;
 }

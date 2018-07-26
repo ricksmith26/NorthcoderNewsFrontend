@@ -3,15 +3,12 @@ import * as api from '../../api';
 import moment from 'moment';
 import CommentInput from './CommentInput';
 import DeleteCommentFunc from './deleteComment';
-import NumberContext from '../../context';
 import CommentVote from './CommentVote';
 
 class CommentsPage extends Component {
   state = {
     comments: [],
-    article: [],
-    voteUp: false,
-    voteDown: false
+    article: []
   };
 
   async componentDidMount() {
@@ -25,7 +22,7 @@ class CommentsPage extends Component {
   }
 
   render() {
-    console.log('comment render');
+    console.log(this.props);
     return (
       <div key={this.state.article_id} className="container">
         <header className="commentHeader">
@@ -50,16 +47,12 @@ class CommentsPage extends Component {
                   </p>
                   Posted {moment(comment.created_at).fromNow('LLL')}
                   <p>Votes: {comment.votes}</p>
-                  <NumberContext.Consumer>
-                    {val => (
-                      <DeleteCommentFunc
-                        currentUser={val}
-                        authorUser={comment.created_by}
-                        id={comment._id}
-                        deleteCom={this.deleteCom}
-                      />
-                    )}
-                  </NumberContext.Consumer>
+                  <DeleteCommentFunc
+                    currentUser={this.props.id}
+                    authorUser={comment.created_by}
+                    id={comment._id}
+                    deleteCom={this.deleteCom}
+                  />
                   <CommentVote
                     voteUp={this.state.voteUp}
                     voteDown={this.state.voteDown}
@@ -67,6 +60,8 @@ class CommentsPage extends Component {
                     handleVoteDown={this.handleVoteDown}
                     votes={comment.votes}
                     id={comment._id}
+                    comments={this.state.comments}
+                    voteState={this.voteState}
                   />
                 </div>
               );
@@ -74,9 +69,10 @@ class CommentsPage extends Component {
         </main>
         <footer className="commentFooter">
           <CommentInput
-            id="messageInput"
             article_id={this.state.article._id}
             addComment={this.addComment}
+            username={this.props.username}
+            loggedIn={this.props.loggedIn}
           />
           <br />
           <br />
@@ -96,26 +92,16 @@ class CommentsPage extends Component {
     api.deleteComment(id);
     this.setState({ comments: newComArr });
   };
-
-  handleVoteUp = async id => {
-    const comment = await api.voteComment(id, {
-      vote: 'up'
+  voteState = (commentId, vote) => {
+    const newCommentArray = this.state.comments.map(comment => {
+      if (comment._id === commentId) {
+        return { ...comment, votes: comment.votes + vote };
+      } else {
+        return comment;
+      }
     });
-
     this.setState({
-      comments: [...this.state.comments, ...comment],
-      voteUp: true
-    });
-  };
-
-  handleVoteDown = async id => {
-    const comment = await api.voteComment(id, {
-      vote: 'down'
-    });
-
-    this.setState({
-      comments: [...this.state.comments, ...comment],
-      voteDown: true
+      comments: newCommentArray
     });
   };
 }

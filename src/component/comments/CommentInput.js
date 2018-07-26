@@ -7,18 +7,22 @@ class CommentInput extends React.Component {
   };
 
   render() {
-    return (
-      <div className="messageInputContainer">
-        <input
-          className="commentBox"
-          type="text"
-          onKeyUp={this.handleKeyPress}
-          onChange={this.handleInputChange}
-          value={this.state.userInput}
-          placeholder="Enter your comment..."
-        />
-      </div>
-    );
+    if (this.props.loggedIn) {
+      return (
+        <div className="messageInputContainer">
+          <input
+            className="commentBox"
+            type="text"
+            onKeyUp={this.handleKeyPress}
+            onChange={this.handleInputChange}
+            value={this.state.userInput}
+            placeholder="Enter your comment..."
+          />
+        </div>
+      );
+    } else {
+      return <p className="commentInputAlt">Login to comment</p>;
+    }
   }
   handleKeyPress = event => {
     if (event.keyCode === 13) {
@@ -36,15 +40,14 @@ class CommentInput extends React.Component {
   };
 
   handlePostMessage = async () => {
-    const currentUser = 'jessjelly';
+    const currentUser = this.props.username;
     const comment = {
       body: this.state.userInput,
-      created_by: 'jessjelly',
+      created_by: currentUser,
       username: currentUser
     };
 
     const newComment = await api.postComment(this.props.article_id, comment);
-    console.log(newComment);
     this.props.addComment(newComment);
     this.setState({ userInput: '' });
   };
