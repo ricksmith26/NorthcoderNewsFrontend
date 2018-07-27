@@ -21,7 +21,7 @@
   height: 30vh;
 
   color: white;
-  padding-bottom: 2%;
+  padding-bottom: 4%;
   padding-top: 2%;
 }
 
@@ -82,6 +82,11 @@ nav {
   width: 60%;
   margin: auto;
   height: 100vh;
+  background-color: whitesmoke;
+  border-bottom: 5px solid #941010;
+  border-right: 5px solid #941010;
+  border-left: 5px solid #941010;
+  padding-top: 5px;
 }
 
 .title {
@@ -118,7 +123,7 @@ nav {
   grid-area: header;
   background-color: white;
   position: relative;
-  border-bottom-color: black;
+  border-bottom: 5px solid #941010;
 }
 
 .commentMain {
@@ -156,4 +161,23 @@ nav {
 
 .thumbsUpCom {
   width: 30px;
+}
+
+.facebook {
+  width: 100px;
+}
+
+.underlined {
+  text-decoration: underline;
+  text-decoration-color: black;
+  color: black;
+}
+
+.dropdown {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #222;
+  color: whitesmoke;
 }

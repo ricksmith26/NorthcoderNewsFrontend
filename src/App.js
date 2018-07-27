@@ -8,6 +8,10 @@ import { Route, NavLink, Link } from 'react-router-dom';
 import CommentsPage from './component/comments/comments';
 import UserLogin from './component/Users/UserLogin';
 import * as api from '../src/api';
+import CreateUser from '../src/component/Users/CreateUser';
+import facebook from './Follow-us.png';
+import Error404 from './component/ArticleFolder/Error404';
+import Error500 from './component/ArticleFolder/Error500';
 
 class App extends Component {
   state = {
@@ -22,28 +26,28 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <figure>
-            <div>
-              <UserLogin
-                username={this.state.username}
-                password={this.state.password}
-                id={this.state.id}
-                loggedIn={this.state.loggedIn}
-                failedLogin={this.state.loggedIn}
-                handleUsernameChange={this.handleUsernameChange}
-                handlePasswordChange={this.handlePasswordChange}
-                handleLogin={this.handleLogin}
-              />
-            </div>
-            <div>
-              <Link to={`/`}>
-                {' '}
-                <img src={logo} className="App-logo" alt="logo" />
-              </Link>
-              <h1 className="App-title">Northcoder News</h1>
-              <Nav />
-            </div>
-          </figure>
+          <div>
+            <UserLogin
+              username={this.state.username}
+              password={this.state.password}
+              id={this.state.id}
+              loggedIn={this.state.loggedIn}
+              failedLogin={this.state.failedLogin}
+              handleUsernameChange={this.handleUsernameChange}
+              handlePasswordChange={this.handlePasswordChange}
+              handleLogin={this.handleLogin}
+            />
+          </div>
+          <div className="maintitle">
+            <Link to={`/`}>
+              <img src={logo} className="App-logo" alt="logo" />
+            </Link>
+            <h1 className="App-title">Northcoder News</h1>
+            <Nav />
+            <a href="https://northcoders.com">
+              <img src={facebook} className="facebook" alt="facebook" />
+            </a>
+          </div>
         </header>
         <div className="background">
           <Route exact path="/" component={Articles} />
@@ -66,6 +70,9 @@ class App extends Component {
               />
             )}
           />
+          <Route exact path="/login-createAcc" component={CreateUser} />
+
+          <Route exact path="/articles/500" component={Error500} />
         </div>
       </div>
     );

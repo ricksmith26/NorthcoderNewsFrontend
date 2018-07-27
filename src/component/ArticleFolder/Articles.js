@@ -18,9 +18,15 @@ class Articles extends Component {
 
   async componentDidUpdate(_, prevState) {
     if (prevState.topic_name !== this.state.topic_name) {
-      const articles = await api.fetchArticlesByTopic(this.state.topic_name);
+      try {
+        const articles = await api.fetchArticlesByTopic(this.state.topic_name);
 
-      this.setState({ articles: articles });
+        this.setState({ articles: articles });
+      } catch (err) {
+        if (err.response.status === 404 || err.response.status === 400)
+          this.props.history.push('404');
+        else this.props.history.push('500');
+      }
     }
   }
 
@@ -28,8 +34,12 @@ class Articles extends Component {
     if (!this.state.articles.length || !this.state.topics.length)
       return <h1>Loading...</h1>;
     return (
-      <div>
-        <select id="topicList" onChange={this.handleTopicChange}>
+      <div className="dropDiv">
+        <select
+          id="topicList"
+          onChange={this.handleTopicChange}
+          className="dropdown"
+        >
           {Object.values(this.state.topics).map(topic => {
             return (
               <option key={topic._id} value={topic.slug}>

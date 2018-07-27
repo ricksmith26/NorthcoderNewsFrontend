@@ -62,5 +62,6 @@ export const getUsers = async () => {
 
 export const addUser = async userInfo => {
   const res = await axios.post(`${URL}/users`, userInfo);
+  console.log(res);
   return res;
 };

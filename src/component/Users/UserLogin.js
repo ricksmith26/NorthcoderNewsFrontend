@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FailedLogin from './failedLogin';
+import facebook from '../../Follow-us.png';
 
 export const LoggedUserContext = React.createContext();
 
@@ -39,9 +40,9 @@ function UserLogin({
             onChange={handlePasswordChange}
             autoComplete="on"
           />
-          <br />
           <FailedLogin failedLogin={failedLogin} />
           <button>login</button>
+
           <br />
           <Link to="/login-createAcc">Sign up</Link>
         </form>
