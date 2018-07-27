@@ -6,7 +6,8 @@ class CreateUser extends Component {
     username: '',
     name: '',
     password: '',
-    sucessful: false
+    sucessful: false,
+    usernameTaken: false
   };
 
   render() {
@@ -14,6 +15,12 @@ class CreateUser extends Component {
       return (
         <div>
           <h2>Account created for {this.state.username}</h2>
+        </div>
+      );
+    if (this.state.usernameTaken)
+      return (
+        <div>
+          <h2>Username {this.state.username} is already being used</h2>{' '}
         </div>
       );
     else
@@ -66,6 +73,7 @@ class CreateUser extends Component {
       username: this.state.username,
       password: this.state.password
     };
+    const userOb = api.getUsers();
 
     event.preventDefault();
     api.addUser(userData).then(() => {
@@ -73,6 +81,8 @@ class CreateUser extends Component {
         sucessful: true
       });
     });
+
+    this.setState({ usernameTaken: true });
   };
 }
 
