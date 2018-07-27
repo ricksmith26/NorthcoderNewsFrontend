@@ -56,15 +56,12 @@ class CreateUser extends Component {
   }
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });
-    console.log(event.target.value, 'username');
   };
   handleNameChange = event => {
     this.setState({ name: event.target.value });
-    console.log(event.target.value, 'name');
   };
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
-    console.log(event.target.value, 'password');
   };
 
   submitUser = event => {
