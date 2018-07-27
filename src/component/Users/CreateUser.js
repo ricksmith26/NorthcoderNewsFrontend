@@ -5,61 +5,75 @@ class CreateUser extends Component {
   state = {
     username: '',
     name: '',
-    password: ''
+    password: '',
+    sucessful: false
   };
 
   render() {
-    return (
-      <div className="createUserDiv">
-        <form className="createForm">
-          <p>Pick a Username</p>
-          <input type="text" onChange={this.handleUsernameChange} />
-          <br />
-          <p>Name:</p>
-          <input type="text" onChange={this.handleNameChange} />
-          <br />
-          <p>Password:</p>
-          <input type="password" onChange={this.handlePasswordChange} />
-          <br />
-          <br />
-          <button>Create Account</button>
-        </form>
-      </div>
-    );
+    if (this.state.sucessful)
+      return (
+        <div>
+          <h2>Account created for {this.state.username}</h2>
+        </div>
+      );
+    else
+      return (
+        <div className="createUserDiv">
+          <form className="createForm" id="userform" onSubmit={this.submitUser}>
+            <p>Pick a Username</p>
+            <input
+              type="text"
+              onChange={this.handleUsernameChange}
+              autoComplete="no"
+            />
+            <br />
+            <p>Name:</p>
+            <input
+              type="text"
+              onChange={this.handleNameChange}
+              autoComplete="no"
+            />
+            <br />
+            <p>Password:</p>
+            <input
+              type="password"
+              onChange={this.handlePasswordChange}
+              autoComplete="no"
+            />
+            <br />
+            <br />
+            <button>Create Account</button>
+          </form>
+        </div>
+      );
   }
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });
+    console.log(event.target.value, 'username');
   };
   handleNameChange = event => {
     this.setState({ name: event.target.value });
+    console.log(event.target.value, 'name');
   };
   handlePasswordChange = event => {
     this.setState({ password: event.target.value });
+    console.log(event.target.value, 'password');
   };
 
-  submitUser = async () => {
-    console.log('hit');
+  submitUser = event => {
     const userData = {
-      username: this.state.username,
       name: this.state.name,
+      username: this.state.username,
       password: this.state.password
     };
 
-    const newUser = await api.addUser(userData);
+    event.preventDefault();
+    api.addUser(userData).then(() => {
+      this.setState({
+        sucessful: true
+      });
+    });
   };
 }
-
-// handlePostMessage = async () => {
-//   const currentUser = this.props.username;
-//   const comment = {
-//     body: this.state.userInput,
-//     created_by: currentUser,
-//     username: currentUser
-//   };
-
-//   const newComment = await api.postComment(this.props.article_id, comment);
-//   this.props.addComment(newComment);
-//   this.setState({ userInput: '' });
-// };
 
 export default CreateUser;

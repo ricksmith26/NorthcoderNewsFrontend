@@ -10,7 +10,7 @@ import UserLogin from './component/Users/UserLogin';
 import * as api from '../src/api';
 import CreateUser from '../src/component/Users/CreateUser';
 import facebook from './Follow-us.png';
-import Error404 from './component/ArticleFolder/Error404';
+// import Error404 from './component/ArticleFolder/Error404';
 import Error500 from './component/ArticleFolder/Error500';
 
 class App extends Component {

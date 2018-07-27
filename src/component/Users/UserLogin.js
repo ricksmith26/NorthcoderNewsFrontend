@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FailedLogin from './failedLogin';
-import facebook from '../../Follow-us.png';
 
 export const LoggedUserContext = React.createContext();
 

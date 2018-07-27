@@ -1,7 +1,6 @@
 import React from 'react';
 
 function FailedLogin({ failedLogin }) {
-  console.log(failedLogin);
   if (failedLogin) {
     return <p>Incorrect Username/Password</p>;
   } else {
