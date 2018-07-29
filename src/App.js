@@ -23,7 +23,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('AppRen');
     return (
       <div className="App">
         <header className="App-header">

@@ -26,7 +26,6 @@ class FullArticleView extends Component {
   }
 
   render() {
-    console.log('fullRen');
     return (
       <div className="fullArticle">
         <div className="subFullArticle">

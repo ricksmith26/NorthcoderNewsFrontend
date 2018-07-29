@@ -7,7 +7,6 @@ class CommentVote extends Component {
     voteDown: false
   };
   render() {
-    console.log('comVoteRen');
     return (
       <div>
         {this.voteUp ? (

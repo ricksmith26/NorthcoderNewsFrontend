@@ -3,7 +3,6 @@ import thumbsUp from '../../Thumbs-Up.svg';
 
 class ArticleVote extends Component {
   render() {
-    console.log('voteRender');
     return (
       <div className="voteDiv">
         <p>click thumbs to vote</p>

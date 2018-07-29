@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../../api';
+import { Link } from 'react-router-dom';
 
 class CreateUser extends Component {
   state = {
@@ -11,11 +12,13 @@ class CreateUser extends Component {
   };
 
   render() {
-    console.log('userRen');
     if (this.state.sucessful)
       return (
         <div>
           <h2>Account created for {this.state.username}</h2>
+          <Link to={`/`}>
+            <h2>Click here to go home</h2>
+          </Link>
         </div>
       );
     if (this.state.usernameTaken)

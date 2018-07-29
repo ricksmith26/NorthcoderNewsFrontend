@@ -32,7 +32,6 @@ class Articles extends Component {
   }
 
   render() {
-    console.log('artcileRender');
     if (!this.state.articles.length || !this.state.topics.length)
       return <LoadingIcon />;
     return (
