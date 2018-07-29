@@ -8,6 +8,7 @@
   background-image: url('./northcoderlogo.jpg');
   background-repeat: repeat-y repeat-x;
   background-size: 5%;
+  height: max-content;
 }
 
 .App-logo {
@@ -21,7 +22,7 @@
   height: 30vh;
 
   color: white;
-  padding-bottom: 4%;
+  padding-bottom: 7%;
   padding-top: 2%;
 }
 
@@ -81,7 +82,7 @@ nav {
 .fullArticle {
   width: 60%;
   margin: auto;
-  height: 100vh;
+
   background-color: whitesmoke;
   border-bottom: 5px solid #941010;
   border-right: 5px solid #941010;
@@ -157,12 +158,76 @@ nav {
 
 .thumbsUp {
   width: 50px;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+  border-radius: 12px;
+  border: 2px solid black;
+  padding-right: 2px;
+  margin-right: 2px;
+}
+
+.thumbsUp:hover {
+  background-color: #941010;
+  color: whitesmoke;
+  -webkit-transition: color 2s;
+  transition: background 2s;
+  border-radius: 12px;
+}
+
+.thumbsDown {
+  width: 50px;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+  border-radius: 12px;
+  border: 2px solid black;
+  transform: rotate(180deg);
+  padding-left: 2px;
+  margin-left: 2px;
+}
+
+.thumbsDown:hover {
+  background-color: #941010;
+  color: whitesmoke;
+  -webkit-transition: color 2s;
+  transition: background 2s;
+  border-radius: 12px;
 }
 
 .thumbsUpCom {
-  width: 30px;
+  width: 50px;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+  border-radius: 12px;
+  border: 2px solid black;
+
+  padding-left: 2px;
+  margin-left: 2px;
+}
+.thumbsDownCom {
+  width: 50px;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+  border-radius: 12px;
+  border: 2px solid black;
+  transform: rotate(180deg);
+  padding-left: 2px;
+  margin-left: 2px;
+}
+.thumbsDownCom:hover {
+  background-color: #941010;
+  color: whitesmoke;
+  -webkit-transition: color 2s;
+  transition: background 2s;
+  border-radius: 12px;
 }
 
+.thumbsUpCom:hover {
+  background-color: #941010;
+  color: whitesmoke;
+  -webkit-transition: color 2s;
+  transition: background 2s;
+  border-radius: 12px;
+}
 .facebook {
   width: 100px;
 }
@@ -180,4 +245,8 @@ nav {
   padding-right: 15px;
   background-color: #222;
   color: whitesmoke;
+}
+
+Loading {
+  width: 100vw;
 }

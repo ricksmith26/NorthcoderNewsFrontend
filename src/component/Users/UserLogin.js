@@ -6,8 +6,6 @@ export const LoggedUserContext = React.createContext();
 
 function UserLogin({
   username,
-  password,
-  id,
   loggedIn,
   failedLogin,
   handleUsernameChange,

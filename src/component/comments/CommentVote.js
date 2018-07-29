@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import thumbsUp from '../../Thumbs-Up.svg';
-import thumbsDown from '../../thumbs-down.svg';
 
 class CommentVote extends Component {
   state = {
@@ -8,6 +7,7 @@ class CommentVote extends Component {
     voteDown: false
   };
   render() {
+    console.log('comVoteRen');
     return (
       <div>
         {this.voteUp ? (
@@ -24,9 +24,9 @@ class CommentVote extends Component {
           <p>You have voted down</p>
         ) : (
           <img
-            className="thumbsUpCom"
-            src={thumbsDown}
-            alt="thumbsUpDown"
+            className="thumbsDownCom"
+            src={thumbsUp}
+            alt="thumbsDown"
             onClick={e => this.handleVoteDown(this.props.id)}
           />
         )}

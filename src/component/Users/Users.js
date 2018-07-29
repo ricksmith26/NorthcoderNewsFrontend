@@ -10,6 +10,7 @@ class Users extends Component {
   };
 
   async componentDidMount() {
+    console.log('userRen');
     try {
       const users = await api.fetchUsers(this.props.match.params.username);
       const articles = await api.fetchArticles();

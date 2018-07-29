@@ -22,6 +22,7 @@ class CommentsPage extends Component {
   }
 
   render() {
+    console.log('comRen');
     return (
       <div key={this.state.article_id} className="container">
         <header className="commentHeader">

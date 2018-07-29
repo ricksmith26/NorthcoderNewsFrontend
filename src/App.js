@@ -23,6 +23,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('AppRen');
     return (
       <div className="App">
         <header className="App-header">
@@ -44,7 +45,7 @@ class App extends Component {
             </Link>
             <h1 className="App-title">Northcoder News</h1>
             <Nav />
-            <a href="https://northcoders.com">
+            <a href="https://www.facebook.com/northcoders/">
               <img src={facebook} className="facebook" alt="facebook" />
             </a>
           </div>

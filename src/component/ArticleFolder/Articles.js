@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ArticlesList from './ArticlesList';
 import * as api from '../../api';
+import LoadingIcon from '../../Loading';
 
 class Articles extends Component {
   state = {
@@ -31,8 +32,9 @@ class Articles extends Component {
   }
 
   render() {
+    console.log('artcileRender');
     if (!this.state.articles.length || !this.state.topics.length)
-      return <h1>Loading...</h1>;
+      return <LoadingIcon />;
     return (
       <div className="dropDiv">
         <select

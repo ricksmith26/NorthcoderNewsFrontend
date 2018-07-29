@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import thumbsUp from '../../Thumbs-Up.svg';
-import thumbsDown from '../../thumbs-down.svg';
 
 class ArticleVote extends Component {
   render() {
+    console.log('voteRender');
     return (
       <div className="voteDiv">
         <p>click thumbs to vote</p>
@@ -21,9 +21,9 @@ class ArticleVote extends Component {
           <p>You have voted down</p>
         ) : (
           <img
-            className="thumbsUp"
-            src={thumbsDown}
-            alt="thumbsUp"
+            className="thumbsDown"
+            src={thumbsUp}
+            alt="thumbsDown"
             onClick={e => this.props.handleVoteDown()}
           />
         )}

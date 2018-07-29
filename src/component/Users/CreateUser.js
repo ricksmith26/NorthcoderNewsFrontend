@@ -11,6 +11,7 @@ class CreateUser extends Component {
   };
 
   render() {
+    console.log('userRen');
     if (this.state.sucessful)
       return (
         <div>
@@ -70,7 +71,6 @@ class CreateUser extends Component {
       username: this.state.username,
       password: this.state.password
     };
-    const userOb = api.getUsers();
 
     event.preventDefault();
     api.addUser(userData).then(() => {
