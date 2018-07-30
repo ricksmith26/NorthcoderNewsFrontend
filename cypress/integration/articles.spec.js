@@ -39,11 +39,20 @@ describe('ArtcilesView', () => {
       .get('.articleThumbnail')
       .should('have.length', 12);
   });
-  it('take the user to the correct article when clicking on a title', () => {
-    cy.get('.articleThumbnail')
+  it('takes the user to the correct article when clicking on a title', () => {
+    cy.get('.articleThumbnail .title')
       .first()
       .click('topLeft', { force: true })
       .url()
       .should('eq', 'http://localhost:3000/articles/5b57353ef9af5955f794b0b5');
+  });
+  it('takes the user to the correct article then navigates back to the homepage when clicking the logo', () => {
+    cy.get('.articleThumbnail .title')
+      .first()
+      .click('topLeft', { force: true })
+      .get('.App-logo')
+      .click()
+      .url()
+      .should('eq', 'http://localhost:3000/');
   });
 });
