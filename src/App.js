@@ -26,18 +26,18 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div>
-            <UserLogin
-              username={this.state.username}
-              password={this.state.password}
-              id={this.state.id}
-              loggedIn={this.state.loggedIn}
-              failedLogin={this.state.failedLogin}
-              handleUsernameChange={this.handleUsernameChange}
-              handlePasswordChange={this.handlePasswordChange}
-              handleLogin={this.handleLogin}
-            />
-          </div>
+          <UserLogin
+            className="userlogin"
+            username={this.state.username}
+            password={this.state.password}
+            id={this.state.id}
+            loggedIn={this.state.loggedIn}
+            failedLogin={this.state.failedLogin}
+            handleUsernameChange={this.handleUsernameChange}
+            handlePasswordChange={this.handlePasswordChange}
+            handleLogin={this.handleLogin}
+          />
+
           <div className="maintitle">
             <Link to={`/`}>
               <img src={logo} className="App-logo" alt="logo" />

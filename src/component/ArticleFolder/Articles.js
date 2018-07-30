@@ -43,7 +43,7 @@ class Articles extends Component {
         >
           {Object.values(this.state.topics).map(topic => {
             return (
-              <option key={topic._id} value={topic.slug}>
+              <option className="dropdown" key={topic._id} value={topic.slug}>
                 {topic.title}
               </option>
             );
