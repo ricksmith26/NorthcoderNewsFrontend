@@ -15,7 +15,14 @@ describe.only('ArtcilesView', () => {
   it('articles length should be 36', () => {
     cy.get('.articleThumbnail').should('have.length', 36);
   });
-  it('titles for thumbnails will include', () => {
-    cy.get('.dropdown').select('cooking');
+  it('amount of options on the drop down bar shuld be 4 inc a blank one', () => {
+    cy.get('.dropdown').should('have.length', 4);
+  });
+  it('returns the articles froma certain topic', () => {
+    cy.get('select')
+
+      .select('cooking')
+      .invoke('val')
+      .should('have.length', 12);
   });
 });

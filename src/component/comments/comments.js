@@ -4,6 +4,7 @@ import moment from 'moment';
 import CommentInput from './CommentInput';
 import DeleteCommentFunc from './deleteComment';
 import CommentVote from './CommentVote';
+import PropTypes from 'prop-types';
 
 class CommentsPage extends Component {
   state = {
@@ -106,4 +107,9 @@ class CommentsPage extends Component {
   };
 }
 
+CommentsPage.propTypes = {
+  username: PropTypes.string,
+  loggedIn: PropTypes.boolean,
+  currentUser: PropTypes.boolean
+};
 export default CommentsPage;

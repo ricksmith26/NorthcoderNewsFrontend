@@ -1,5 +1,6 @@
 import React from 'react';
 import * as api from '../../api';
+import PropTypes from 'prop-types';
 
 class CommentInput extends React.Component {
   state = {
@@ -52,5 +53,9 @@ class CommentInput extends React.Component {
     this.setState({ userInput: '' });
   };
 }
+CommentInput.propTypes = {
+  addComment: PropTypes.func,
+  loggedIn: PropTypes.bool
+};
 
 export default CommentInput;

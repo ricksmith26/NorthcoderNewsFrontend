@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FailedLogin from './failedLogin';
+import PropTypes from 'prop-types';
 
 export const LoggedUserContext = React.createContext();
 
@@ -46,5 +47,15 @@ function UserLogin({
       </div>
     );
 }
+UserLogin.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
+  id: PropTypes.string,
+  loggedIn: PropTypes.bool,
+  failedLogin: PropTypes.bool,
+  handleUsernameChange: PropTypes.string,
+  handlePasswordChange: PropTypes.string,
+  handleLogin: PropTypes.string
+};
 
 export default UserLogin;
