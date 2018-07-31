@@ -42,7 +42,9 @@ function UserLogin({
           <button>login</button>
 
           <br />
-          <Link to="/login-createAcc">Sign up</Link>
+          <Link to="/login-createAcc">
+            <p className="createAcc">Sign up</p>
+          </Link>
         </form>
       </div>
     );

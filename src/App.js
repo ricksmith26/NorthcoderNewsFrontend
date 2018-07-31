@@ -106,7 +106,7 @@ function Nav() {
   return (
     <div>
       <NavLink exact to="/">
-        Home
+        <p className="createAcc">Home</p>
       </NavLink>
     </div>
   );

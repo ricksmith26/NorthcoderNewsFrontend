@@ -252,3 +252,9 @@ nav {
 Loading {
   width: 100vw;
 }
+
+.createAcc {
+  color: whitesmoke;
+  text-decoration: underline;
+  text-decoration-color: whitesmoke;
+}

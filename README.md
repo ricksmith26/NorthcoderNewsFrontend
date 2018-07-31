@@ -1,8 +1,8 @@
-#FE-FT-NC-News
+# FE-FT-NC-News
 
 In this sprint I will create a Northcoders News app with react frontend and use my mongodb backend api that I have previously created. Please click to following link to view 'https://ncnewsfrontend.herokuapp.com/'
 
-#Getting Started
+# Getting Started
 
 To run this git on you machine git clone https://github.com/ricksmith26/copyofNCNEWSFRONT.git and type npm install in your command line to install the following dependancies:
 
@@ -20,10 +20,10 @@ To run this git on you machine git clone https://github.com/ricksmith26/copyofNC
 
 Once installed enter 'npm start' in your commandline
 
-#Error handling
+# Intergration testing
 
-I have used Cypress for the error handling in frontend although I have still to add much of this.
+I have used Cypress for the intergration testing in frontend although I have still to add much of this.
 
-#Author
+# Author
 
 The front and backend for this app has been written by Rick Smith.
