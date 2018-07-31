@@ -4,14 +4,15 @@ import * as api from '../../api';
 
 class ArticleVote extends Component {
   state = {
-    voteUp: false,
-    voteDown: false
+    vote: 0
   };
+
   render() {
     return (
       <div className="voteDiv">
+        <p>Votes: {this.props.votes + this.state.vote}</p>
         <p>click thumbs to vote</p>
-        {this.props.voteUp ? (
+        {this.state.voteUp === 1 ? (
           <p>You have voted up</p>
         ) : (
           <img
@@ -21,7 +22,7 @@ class ArticleVote extends Component {
             onClick={e => this.handleVoteUp()}
           />
         )}
-        {this.props.voteDown ? (
+        {this.state.voteDown >= -1 ? (
           <p>You have voted down</p>
         ) : (
           <img
@@ -35,19 +36,18 @@ class ArticleVote extends Component {
     );
   }
   handleVoteUp = async () => {
-    const article = await api.voteArticle(this.state.article._id, {
+    await api.voteArticle(this.props.article_id, {
       vote: 'up'
     });
-
-    this.setState({ article, voteUp: true });
+    this.setState({ vote: 1 });
   };
 
   handleVoteDown = async () => {
-    const article = await api.voteArticle(this.state.article._id, {
+    await api.voteArticle(this.props.article_id, {
       vote: 'down'
     });
 
-    this.setState({ article, voteDown: true });
+    this.setState({ vote: -1 });
   };
 }
 

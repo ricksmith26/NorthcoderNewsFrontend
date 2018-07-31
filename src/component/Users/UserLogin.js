@@ -50,14 +50,14 @@ function UserLogin({
     );
 }
 UserLogin.propTypes = {
-  username: PropTypes.string,
-  password: PropTypes.string,
-  id: PropTypes.string,
-  loggedIn: PropTypes.bool,
-  failedLogin: PropTypes.bool,
-  handleUsernameChange: PropTypes.func,
-  handlePasswordChange: PropTypes.func,
-  handleLogin: PropTypes.func
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  failedLogin: PropTypes.bool.isRequired,
+  handleUsernameChange: PropTypes.func.isRequired,
+  handlePasswordChange: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired
 };
 
 export default UserLogin;

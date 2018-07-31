@@ -34,7 +34,7 @@ class FullArticleView extends Component {
               {' '}
               <p className="underlined">{this.state.article.username}</p>
             </Link>
-            <p>Votes: {this.state.article.votes}</p>
+            {/* <p>Votes: {this.state.article.votes}</p> */}
             <Link to={`/articles/${this.state.article._id}/comments`}>
               {' '}
               <p className="underlined">
@@ -42,9 +42,8 @@ class FullArticleView extends Component {
               </p>
             </Link>
             <ArticleVote
-              handleVoteUp={this.handleVoteUp}
-              handleVoteDown={this.handleVoteDown}
               votes={this.state.article.votes}
+              article_id={this.state.article._id}
             />
           </div>
         </div>

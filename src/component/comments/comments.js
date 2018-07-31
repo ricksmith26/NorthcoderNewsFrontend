@@ -56,8 +56,6 @@ class CommentsPage extends Component {
                   <CommentVote
                     voteUp={this.state.voteUp}
                     voteDown={this.state.voteDown}
-                    handleVoteUp={this.handleVoteUp}
-                    handleVoteDown={this.handleVoteDown}
                     votes={comment.votes}
                     id={comment._id}
                     comments={this.state.comments}
@@ -114,8 +112,8 @@ class CommentsPage extends Component {
 }
 
 CommentsPage.propTypes = {
-  username: PropTypes.string,
-  loggedIn: PropTypes.boolean,
-  currentUser: PropTypes.boolean
+  username: PropTypes.string.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  currentUser: PropTypes.string.isRequired
 };
 export default CommentsPage;

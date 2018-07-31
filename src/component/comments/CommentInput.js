@@ -54,8 +54,8 @@ class CommentInput extends React.Component {
   };
 }
 CommentInput.propTypes = {
-  addComment: PropTypes.func,
-  loggedIn: PropTypes.bool
+  addComment: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired
 };
 
 export default CommentInput;
