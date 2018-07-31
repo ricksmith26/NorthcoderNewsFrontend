@@ -55,9 +55,9 @@ UserLogin.propTypes = {
   id: PropTypes.string,
   loggedIn: PropTypes.bool,
   failedLogin: PropTypes.bool,
-  handleUsernameChange: PropTypes.string,
-  handlePasswordChange: PropTypes.string,
-  handleLogin: PropTypes.string
+  handleUsernameChange: PropTypes.func,
+  handlePasswordChange: PropTypes.func,
+  handleLogin: PropTypes.func
 };
 
 export default UserLogin;

@@ -23,7 +23,6 @@ class CommentsPage extends Component {
   }
 
   render() {
-    console.log('comRen');
     return (
       <div key={this.state.article_id} className="container">
         <header className="commentHeader">
@@ -101,6 +100,13 @@ class CommentsPage extends Component {
         return comment;
       }
     });
+    if (vote === -1) {
+      api.voteComment(commentId, { vote: 'down' });
+    }
+    if (vote === 1) {
+      api.voteComment(commentId, { vote: 'up' });
+    }
+
     this.setState({
       comments: newCommentArray
     });

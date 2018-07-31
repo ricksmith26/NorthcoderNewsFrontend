@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import thumbsUp from '../../Thumbs-Up.svg';
+import thumbsUp from '../../assets/Thumbs-Up.svg';
 import PropTypes from 'prop-types';
 
 class CommentVote extends Component {

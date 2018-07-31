@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.jpg';
+import logo from './assets/logo.jpg';
 import './App.css';
 import Articles from '../src/component/ArticleFolder/Articles';
 import FullArticleView from '../src/component/ArticleFolder/FullArticleView';
 import Users from '../src/component/Users/Users';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import CommentsPage from './component/comments/comments';
 import UserLogin from './component/Users/UserLogin';
 import * as api from '../src/api';
 import CreateUser from '../src/component/Users/CreateUser';
-import facebook from './Follow-us.png';
-// import Error404 from './component/ArticleFolder/Error404';
+import facebook from './assets/Follow-us.png';
 import Error500 from './component/ArticleFolder/Error500';
+import Nav from '../src/component/Nav/Nav';
 
 class App extends Component {
   state = {
@@ -102,13 +102,5 @@ class App extends Component {
     });
   };
 }
-function Nav() {
-  return (
-    <div>
-      <NavLink exact to="/">
-        <p className="createAcc">Home</p>
-      </NavLink>
-    </div>
-  );
-}
+
 export default App;

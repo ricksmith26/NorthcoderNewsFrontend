@@ -5,7 +5,7 @@
   font-family: 'Varela Round', sans-serif;
 }
 .background {
-  background-image: url('./northcoderlogo.jpg');
+  background-image: url('./assets/northcoderlogo.jpg');
   background-repeat: repeat-y repeat-x;
   background-size: 5%;
   min-height: 100vh;

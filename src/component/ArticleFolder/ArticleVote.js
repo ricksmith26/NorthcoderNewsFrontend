@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import thumbsUp from '../../Thumbs-Up.svg';
+import thumbsUp from '../../assets/Thumbs-Up.svg';
+import * as api from '../../api';
 
 class ArticleVote extends Component {
+  state = {
+    voteUp: false,
+    voteDown: false
+  };
   render() {
     return (
       <div className="voteDiv">
@@ -13,7 +18,7 @@ class ArticleVote extends Component {
             className="thumbsUp"
             src={thumbsUp}
             alt="thumbsUp"
-            onClick={e => this.props.handleVoteUp()}
+            onClick={e => this.handleVoteUp()}
           />
         )}
         {this.props.voteDown ? (
@@ -23,12 +28,27 @@ class ArticleVote extends Component {
             className="thumbsDown"
             src={thumbsUp}
             alt="thumbsDown"
-            onClick={e => this.props.handleVoteDown()}
+            onClick={e => this.handleVoteDown()}
           />
         )}
       </div>
     );
   }
+  handleVoteUp = async () => {
+    const article = await api.voteArticle(this.state.article._id, {
+      vote: 'up'
+    });
+
+    this.setState({ article, voteUp: true });
+  };
+
+  handleVoteDown = async () => {
+    const article = await api.voteArticle(this.state.article._id, {
+      vote: 'down'
+    });
+
+    this.setState({ article, voteDown: true });
+  };
 }
 
 export default ArticleVote;

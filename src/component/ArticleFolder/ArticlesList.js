@@ -9,15 +9,13 @@ function ArticlesList({ articles, loggedIn }) {
           <figure key={article._id} className="gallery-Item">
             <div className="articleThumbnail">
               <Link to={`/articles/${article._id}`}>
-                {' '}
                 <h2 className="title">{article.title}</h2>
               </Link>
-              <p className="fadedArticle">{article.body}</p>
+              <p>Author: {article.username}</p>
               <p>Topic: {article.belongs_to}</p>
-              <Link to={`/users/${article.username}`}>
-                {' '}
-                <p>Author: {article.username}</p>
-              </Link>
+
+              <p className="fadedArticle">{article.body}</p>
+              <Link to={`/users/${article.username}`}> </Link>
               <Link to={`/articles/${article._id}/comments`}>
                 {' '}
                 <p>Comments: {article.comments}</p>

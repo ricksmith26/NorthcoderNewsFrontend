@@ -7,14 +7,15 @@ class Articles extends Component {
   state = {
     articles: [],
     topics: [],
-    topic_name: []
+    topic_name: ''
   };
 
   componentDidMount = async () => {
-    const articles = await api.fetchArticles();
-    const topics = await api.fetchTopics();
-
-    this.setState({ articles, topics });
+    Promise.all([api.fetchArticles(), api.fetchTopics()]).then(
+      ([articles, topics]) => {
+        this.setState({ articles, topics });
+      }
+    );
   };
 
   async componentDidUpdate(_, prevState) {
@@ -32,9 +33,9 @@ class Articles extends Component {
   }
 
   render() {
-    if (!this.state.articles.length || !this.state.topics.length)
-      return <LoadingIcon />;
-    return (
+    return !this.state.articles.length || !this.state.topics.length ? (
+      <LoadingIcon />
+    ) : (
       <div className="dropDiv">
         <select
           id="topicList"
