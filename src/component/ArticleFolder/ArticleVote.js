@@ -8,12 +8,13 @@ class ArticleVote extends Component {
   };
 
   render() {
+    console.log(this.state.vote === this.props.votes + this.state.vote);
     return (
       <div className="voteDiv">
         <p>Votes: {this.props.votes + this.state.vote}</p>
         <p>click thumbs to vote</p>
-        {this.state.voteUp === 1 ? (
-          <p>You have voted up</p>
+        {this.state.vote !== 0 ? (
+          <p>You have voted</p>
         ) : (
           <img
             className="thumbsUp"
@@ -22,8 +23,8 @@ class ArticleVote extends Component {
             onClick={e => this.handleVoteUp()}
           />
         )}
-        {this.state.voteDown >= -1 ? (
-          <p>You have voted down</p>
+        {this.state.vote !== 0 ? (
+          <p />
         ) : (
           <img
             className="thumbsDown"
