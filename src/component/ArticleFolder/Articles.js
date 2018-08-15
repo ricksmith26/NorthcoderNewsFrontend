@@ -42,6 +42,15 @@ class Articles extends Component {
           onChange={this.handleTopicChange}
           className="dropdown"
         >
+          <option
+            className="dropdown"
+            disabled
+            selected
+            key="topicSearch"
+            value="null"
+          >
+            Search by Topic
+          </option>
           {Object.values(this.state.topics).map(topic => {
             return (
               <option className="dropdown" key={topic._id} value={topic.slug}>
@@ -55,7 +64,13 @@ class Articles extends Component {
           onChange={this.handlePopSearch}
           className="dropdown"
         >
-          <option className="dropdown" key="null" value="null">
+          <option
+            className="dropdown"
+            disabled
+            selected
+            key="null"
+            value="null"
+          >
             Search by poplularity
           </option>
           <option className="dropdown" key="HiLo" value="HiLo">
@@ -70,7 +85,9 @@ class Articles extends Component {
     );
   }
   handleTopicChange = event => {
-    this.setState({ topic_name: event.target.value });
+    console.log(this.state);
+    if (event.target.value !== null)
+      this.setState({ topic_name: event.target.value });
   };
   handlePopSearch = (event, value) => {
     const sortPopHiLo = [...this.state.articles].sort(function(a, b) {
