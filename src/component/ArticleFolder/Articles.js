@@ -50,12 +50,45 @@ class Articles extends Component {
             );
           })}
         </select>
+        <select
+          id="Search by popularity"
+          onChange={this.handlePopSearch}
+          className="dropdown"
+        >
+          <option className="dropdown" key="null" value="null">
+            Search by poplularity
+          </option>
+          <option className="dropdown" key="HiLo" value="HiLo">
+            hi-low
+          </option>
+          <option className="dropdown" key="LoHi" value="LoHi">
+            low-hi
+          </option>
+        </select>
         <ArticlesList articles={this.state.articles} />
       </div>
     );
   }
   handleTopicChange = event => {
     this.setState({ topic_name: event.target.value });
+  };
+  handlePopSearch = (event, value) => {
+    const sortPopHiLo = [...this.state.articles].sort(function(a, b) {
+      return b.votes - a.votes;
+    });
+    const sortPopLoHi = [...this.state.articles].sort(function(a, b) {
+      return a.votes - b.votes;
+    });
+
+    if (event.target.value === 'HiLo') {
+      console.log('hitHiLo');
+      this.setState({ articles: sortPopHiLo });
+    }
+    if (event.target.value === 'LoHi') {
+      console.log('hitLoHi');
+      this.setState({ articles: sortPopLoHi });
+    }
+    console.log(this.state.articles);
   };
 }
 
