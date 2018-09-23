@@ -40,7 +40,7 @@ class Articles extends Component {
         <select
           id="topicList"
           onChange={this.handleTopicChange}
-          className="dropdown"
+          className="dropdownTopic"
         >
           <option
             className="dropdown"
@@ -62,10 +62,10 @@ class Articles extends Component {
         <select
           id="Search by popularity"
           onChange={this.handlePopSearch}
-          className="dropdown"
+          className="dropdown1"
         >
           <option
-            className="dropdown"
+            className="dropdown1"
             disabled
             selected
             key="null"
@@ -73,10 +73,10 @@ class Articles extends Component {
           >
             Search by poplularity
           </option>
-          <option className="dropdown" key="HiLo" value="HiLo">
+          <option className="dropdown1" key="HiLo" value="HiLo">
             hi-low
           </option>
-          <option className="dropdown" key="LoHi" value="LoHi">
+          <option className="dropdown1" key="LoHi" value="LoHi">
             low-hi
           </option>
         </select>

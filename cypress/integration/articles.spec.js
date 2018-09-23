@@ -15,25 +15,25 @@ describe('ArtcilesView', () => {
   it('articles length should be 36', () => {
     cy.get('.articleThumbnail').should('have.length', 36);
   });
-  it('amount of options on the drop down bar shuld be 4 inc a blank one', () => {
+  it('amount of options on the drop down bar should be 4 inc a blank one', () => {
     cy.get('.dropdown').should('have.length', 4);
   });
   it('returns the articles from the cooking topic', () => {
-    cy.get('select')
+    cy.get('.dropdownTopic')
       .select('cooking', { force: true })
       .invoke('val')
       .get('.articleThumbnail')
       .should('have.length', 12);
   });
   it('returns the articles from the football topic', () => {
-    cy.get('select')
+    cy.get('.dropdownTopic')
       .select('football', { force: true })
       .invoke('val')
       .get('.articleThumbnail')
       .should('have.length', 12);
   });
   it('returns the articles from the coding topic', () => {
-    cy.get('select')
+    cy.get('.dropdownTopic')
       .select('coding', { force: true })
       .invoke('val')
       .get('.articleThumbnail')

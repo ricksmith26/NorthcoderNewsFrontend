@@ -248,7 +248,22 @@ nav {
   background-color: #222;
   color: whitesmoke;
 }
-
+.dropdownTopic {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #222;
+  color: whitesmoke;
+}
+.dropdown1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #222;
+  color: whitesmoke;
+}
 Loading {
   width: 100vw;
 }
